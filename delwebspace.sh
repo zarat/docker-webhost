@@ -3,11 +3,11 @@
 # Kundenname
 read -p "Bitte gib einen Kunden-namen ein: " kunde
 
-echo "Stoppe Container"
-sudo docker stop $kunde > /dev/null
+#echo "Stoppe Container"
+#sudo docker stop $kunde > /dev/null
 
 echo "Entferne Container"
-sudo docker rm $kunde > /dev/null
+sudo docker rm $kunde -f > /dev/null
 
 echo "Entferne vHost Konfiguration"
 sudo rm "/etc/nginx/sites-available/$kunde"
