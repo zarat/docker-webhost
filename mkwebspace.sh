@@ -46,6 +46,18 @@ server {
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
     }
 }
+
+server {
+    listen 443;
+    server_name $kunde.zarat.cloudns.nz;
+
+    location / {
+        proxy_pass http://$CONTAINER_IP:443;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+    }
+}
 EOF
 
 echo "Aktiviere vHost"
