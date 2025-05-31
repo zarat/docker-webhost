@@ -2,8 +2,8 @@
 
 read -p "Name: " kunde
 read -p "externer SSH-Port: " port
-read -p "Username: " username
 
+username=$kunde
 password=$username!
 
 # Name des Docker-Containers
@@ -45,6 +45,7 @@ server {
         proxy_set_header X-Real-IP \$remote_addr;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
     }
+
 }
 EOF
 
